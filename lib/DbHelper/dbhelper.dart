@@ -9,6 +9,7 @@ class DbHelper{
   static final DbHelper dbhelper=DbHelper._internal();
   String tblPmanager="Passwordmanager";
   String colId="id";
+  String colTitle="title";
   String colEmail="email";
   String coldPassword="password";
 
@@ -38,7 +39,7 @@ class DbHelper{
 
 
   FutureOr<void> _oncreate(Database db, int version) async{
-    await db.execute("create table $tblPmanager($colId INTEGER PRIMARY KEY, $colEmail TEXT, $coldPassword TEXT)");
+    await db.execute("create table $tblPmanager($colId INTEGER PRIMARY KEY, $colTitle TEXT, $colEmail TEXT, $coldPassword TEXT)");
   }
 
   Future<int> insertEntry(PasswordManger passwordManger)async{
@@ -68,6 +69,17 @@ class DbHelper{
     Database db=await this.db;
     var result= await db.rawDelete("delete from $tblPmanager where $colId=$id");
     return result;
+  }
+
+  Future<int> DeleteTable()async{
+    Database db= await this.db;
+    var result=db.delete(tblPmanager);
+    return result;
+  }
+
+  void AlterTable()async{
+    Database db=await this.db;
+    db.execute("Alter table $tblPmanager add $colTitle TEXT");
   }
 
 
