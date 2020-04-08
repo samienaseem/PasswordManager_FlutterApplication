@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class PasswordManger{
    int _id;
    String _title;
@@ -12,9 +10,9 @@ class PasswordManger{
 
   Map<String, dynamic> tomap(){
     var map=new Map<String,dynamic>();
-    map['title']=_title;
-    map['email']=_email;
-    map['password']=_password;
+    map["title"]=_title;
+    map["email"]=_email;
+    map["password"]=_password;
 
     if(_id!=null){
       map['id']=_id;
@@ -27,7 +25,7 @@ class PasswordManger{
     this._id=o['id'];
     this._title=o['title'];
     this._email=o['email'];
-    this._password=o['passowrd'];
+    this._password=o['password'];
 
   }
 

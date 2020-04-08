@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:passwordmanager/model/passowrd.dart';
@@ -40,9 +41,11 @@ class teststate extends State {
   @override
   Widget build(BuildContext context) {
     print("object");
-    /*if(user==null){
+    */
+/*if(user==null){
       Future.delayed(Duration.zero,()=>showAlert(context));
-    }*/
+    }*//*
+
       return Scaffold(
         body: Container(
           child: Column(
@@ -84,3 +87,4 @@ class teststate extends State {
         ));
   }
   }
+*/

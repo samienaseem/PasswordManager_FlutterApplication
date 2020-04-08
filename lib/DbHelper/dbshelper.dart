@@ -1,4 +1,3 @@
-/*
 import 'package:flutter/cupertino.dart';
 import 'package:passwordmanager/model/passowrd.dart';
 import 'package:sqflite/sqflite.dart';
@@ -6,18 +5,18 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
-class DbHelper{
+class DbsHelper{
 
-  static final DbHelper dbhelper=DbHelper._internal();
+  static final DbsHelper dbhelper=DbsHelper._internal();
   String tblPmanager="Passwordmanager123";
   String colId="id";
   String colTitle="title";
   String colEmail="email";
-  String coldPassword="password";
+  String colPassword="password";
 
-  DbHelper._internal();
+  DbsHelper._internal();
 
-  factory DbHelper(){
+  factory DbsHelper(){
     return dbhelper;
   }
 
@@ -32,9 +31,9 @@ class DbHelper{
 
   Future<Database> initDatabase()async {
     Directory dir=await getApplicationDocumentsDirectory();
-    String path=dir.path +"Pm_Manager.db";
-    debugPrint(path);
-    var manager= await openDatabase(path,version: 2, onCreate: _oncreate);
+    String path=dir.path +"Pm1_Manager.db";
+    //debugPrint(path);
+    var manager= await openDatabase(path,version: 1, onCreate: _oncreate);
     return manager;
   }
 
@@ -43,7 +42,7 @@ class DbHelper{
 
   void _oncreate(Database db, int version) async{
     await db.execute("create table $tblPmanager($colId INTEGER PRIMARY KEY, $colTitle TEXT, $colEmail TEXT, "
-        +"$coldPassword TEXT)");
+        +"$colPassword TEXT)");
   }
 
   Future<int> insertEntry(PasswordManger passwordManger)async{
@@ -90,4 +89,3 @@ class DbHelper{
 
 }
 
-*/
